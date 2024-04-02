@@ -11,14 +11,14 @@ Removerr is a straightforward application designed for deleting movies and serie
 
 ### Development
 
-- Clone the project repository.
+- Clone the project repository
 
-```
+```bash
 git clone <repository-url>
 ```
 
-- Set up your environment variables by creating a .env.local file based on the provided .env.local.example.
-- Start the development server.
+- Set up your environment variables by creating a .env.local file based on the provided .env.local.example
+- Start the development server
 
 ```bash
 npm run dev
@@ -26,4 +26,20 @@ npm run dev
 yarn dev
 ```
 
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
+
+### Docker Deployment
+
+- Build the Docker image
+
+```bash
+docker build -t removerr-img .
+```
+
+- Run the Docker image
+
+```bash
+docker run -p 3000:3000 removerr-img
+```
+
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
