@@ -1,6 +1,6 @@
-import Serie from "@/app/models/Serie";
-import { overseerService } from "@/app/services/OverseerrService";
-import { sonarrService } from "@/app/services/SonarrService";
+import Serie from "@/models/Serie";
+import { overseerService } from "@/services/OverseerrService";
+import { sonarrService } from "@/services/SonarrService";
 
 export async function GET() {
   try {

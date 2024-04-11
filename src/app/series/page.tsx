@@ -15,7 +15,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Serie from "../models/Serie";
+import Serie from "../../models/Serie";
 
 const Series = () => {
   const [series, setSeries] = useState<Serie[]>([]);

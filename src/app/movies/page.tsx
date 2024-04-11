@@ -15,7 +15,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Movie from "../models/Movie";
+import Movie from "../../models/Movie";
 
 const Movies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);

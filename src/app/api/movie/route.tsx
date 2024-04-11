@@ -1,6 +1,6 @@
-import Movie from "@/app/models/Movie";
-import { overseerService } from "@/app/services/OverseerrService";
-import { radarrService } from "@/app/services/RadarrService";
+import Movie from "@/models/Movie";
+import { overseerService } from "@/services/OverseerrService";
+import { radarrService } from "@/services/RadarrService";
 
 export async function GET() {
   try {

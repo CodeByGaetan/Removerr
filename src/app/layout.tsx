@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,6 +21,7 @@ export const viewport: Viewport = {
       color: "hsl(222.2 84% 4.9%)",
     },
   ],
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -34,8 +35,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" enableSystem defaultTheme="system">
           <Navbar />
           {children}
+          <Toaster />
         </ThemeProvider>
-        <Toaster />
       </body>
     </html>
   );
