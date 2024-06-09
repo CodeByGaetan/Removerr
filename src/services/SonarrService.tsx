@@ -5,7 +5,9 @@ const sonarrApiKey = process.env.SONARR_API_KEY!;
 
 class SonarrService {
   private static instance: SonarrService;
+
   private constructor() {}
+
   public static getInstance(): SonarrService {
     if (!SonarrService.instance) {
       SonarrService.instance = new SonarrService();
@@ -23,7 +25,6 @@ class SonarrService {
     };
 
     const response = await fetch(path, requestOptions);
-
     const data = await response.json();
 
     try {
@@ -31,11 +32,13 @@ class SonarrService {
         id: serie.id,
         tvdbId: serie.tvdbId,
         title: serie.title,
-        imageUrl: serie.images[1].remoteUrl,
+        imageUrl: serie.images[1]?.remoteUrl,
       }));
       return filteredData;
     } catch (error) {
-      throw new Error("Error filtering series from Sonarr API response");
+      throw new Error(
+        `Error filtering series from Sonarr API response : ${error}`
+      );
     }
   }
 

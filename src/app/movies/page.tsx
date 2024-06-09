@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { XIcon } from "lucide-react";
+import { Loader2Icon, XIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Movie from "../../models/Movie";
@@ -86,32 +86,36 @@ const Movies = () => {
   };
 
   return (
-    <>
+    <main>
       <div className="grid grid-cols-[repeat(auto-fit,170px)] md:grid-cols-[repeat(auto-fit,250px)] gap-5 justify-center my-8">
-        {movies.map(
-          (movie: Movie) =>
-            movie.isAvailable && (
-              <Card
-                key={movie.id}
-                className="w-[170px] md:w-[250px] relative overflow-hidden"
-              >
-                <Image
-                  src={movie.imageUrl}
-                  alt={movie.title}
-                  unoptimized
-                  width={600}
-                  height={400}
-                />
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="absolute top-0 right-0 m-2 z-10"
-                  onClick={() => handleDeleteDialog(movie)}
+        {movies.length === 0 ? (
+          <Loader2Icon className="animate-spin col-span-full mx-auto" />
+        ) : (
+          movies.map(
+            (movie: Movie) =>
+              movie.isAvailable && (
+                <Card
+                  key={movie.id}
+                  className="w-[170px] md:w-[250px] relative overflow-hidden"
                 >
-                  <XIcon />
-                </Button>
-              </Card>
-            )
+                  <Image
+                    src={movie.imageUrl}
+                    alt={movie.title}
+                    unoptimized
+                    width={600}
+                    height={400}
+                  />
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute top-0 right-0 m-2 z-10"
+                    onClick={() => handleDeleteDialog(movie)}
+                  >
+                    <XIcon />
+                  </Button>
+                </Card>
+              )
+          )
         )}
       </div>
       <AlertDialog
@@ -138,7 +142,7 @@ const Movies = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </>
+    </main>
   );
 };
 
