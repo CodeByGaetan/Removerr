@@ -31,7 +31,7 @@ class RadarrService {
         id: movie.id,
         tmdbId: movie.tmdbId,
         title: movie.title,
-        imageUrl: movie.images[0].remoteUrl,
+        imageUrl: movie.images[0]?.remoteUrl,
         isAvailable: movie.isAvailable,
       }));
       return filteredData;
