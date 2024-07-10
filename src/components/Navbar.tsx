@@ -12,15 +12,8 @@ const Navbar = () => {
   return (
     <div className="h-20 border-b flex justify-between items-center">
       <Image
-        src="/logo.png"
-        className="hidden lg:block ml-2"
-        alt="Logo"
-        width={220}
-        height={50}
-      />
-      <Image
         src="/icon-512.png"
-        className="lg:hidden ml-2"
+        className="ml-2"
         alt="Icon"
         width={70}
         height={50}
@@ -37,7 +30,6 @@ const Navbar = () => {
           </Button>
         </Link>
       </div>
-
       <div className="flex justify-end mr-5 w-[55px] lg:w-[200px]">
         <ToggleTheme />
       </div>

@@ -52,6 +52,11 @@ const Series = () => {
       throw new Error("No serie selected");
     }
 
+    toast({
+      title: "Suppression en cours ...",
+      description: selectedSerie.title,
+    });
+
     try {
       const response = await fetch("/api/serie", {
         method: "DELETE",

@@ -52,6 +52,11 @@ const Movies = () => {
       throw new Error("No movie selected");
     }
 
+    toast({
+      title: "Suppression en cours ...",
+      description: selectedMovie.title,
+    });
+
     try {
       const response = await fetch("/api/movie", {
         method: "DELETE",
