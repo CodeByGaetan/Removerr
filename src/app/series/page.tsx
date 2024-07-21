@@ -116,6 +116,9 @@ const Series = () => {
               >
                 <XIcon />
               </Button>
+              <p className="w-full text-xs absolute bottom-0 text-center text-white bg-black">
+                {serie.title}
+              </p>
             </Card>
           ))
         )}

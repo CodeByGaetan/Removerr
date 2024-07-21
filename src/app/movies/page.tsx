@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { Loader2Icon, XIcon } from "lucide-react";
+import { CircleCheckIcon, CircleXIcon, Loader2Icon, XIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Movie from "../../models/Movie";
@@ -96,31 +96,38 @@ const Movies = () => {
         {movies.length === 0 ? (
           <Loader2Icon className="animate-spin col-span-full mx-auto" />
         ) : (
-          movies.map(
-            (movie: Movie) =>
-              movie.isAvailable && (
-                <Card
-                  key={movie.id}
-                  className="w-[170px] md:w-[250px] relative overflow-hidden"
-                >
-                  <Image
-                    src={movie.imageUrl}
-                    alt={movie.title}
-                    unoptimized
-                    width={600}
-                    height={400}
-                  />
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="absolute top-0 right-0 m-2 z-10"
-                    onClick={() => handleDeleteDialog(movie)}
-                  >
-                    <XIcon />
-                  </Button>
-                </Card>
-              )
-          )
+          movies.map((movie: Movie) => (
+            <Card
+              key={movie.id}
+              className="w-[170px] md:w-[250px] relative overflow-hidden"
+            >
+              <Image
+                src={movie.imageUrl}
+                alt={movie.title}
+                unoptimized
+                width={600}
+                height={400}
+              />
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute top-0 right-0 m-2 z-10"
+                onClick={() => handleDeleteDialog(movie)}
+              >
+                <XIcon />
+              </Button>
+              <div className="absolute top-0 left-0 m-2 z-10">
+                {movie.isAvailable ? (
+                  <CircleCheckIcon className="text-green-500" />
+                ) : (
+                  <CircleXIcon className="text-red-600" />
+                )}
+              </div>
+              <p className="w-full text-xs absolute bottom-0 text-center text-white bg-black">
+                {movie.title}
+              </p>
+            </Card>
+          ))
         )}
       </div>
       <AlertDialog

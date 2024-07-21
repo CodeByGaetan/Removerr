@@ -32,7 +32,7 @@ class RadarrService {
         tmdbId: movie.tmdbId,
         title: movie.title,
         imageUrl: movie.images[0]?.remoteUrl,
-        isAvailable: movie.isAvailable,
+        isAvailable: movie.movieFile ? true : false,
       }));
       return filteredData;
     } catch (error) {
