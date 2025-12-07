@@ -101,13 +101,17 @@ const Movies = () => {
               key={movie.id}
               className="w-[170px] md:w-[250px] relative overflow-hidden"
             >
-              <Image
-                src={movie.imageUrl}
-                alt={movie.title}
-                unoptimized
-                width={600}
-                height={400}
-              />
+              {movie.imageUrl ? (
+                <Image
+                  src={movie.imageUrl}
+                  alt={movie.title}
+                  width={600}
+                  height={400}
+                  unoptimized
+                />
+              ) : (
+                <div className="h-[400px] w-[600px]" />
+              )}
               <Button
                 variant="outline"
                 size="icon"

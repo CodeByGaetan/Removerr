@@ -14,12 +14,12 @@ const Navbar = () => {
     <div className="h-20 border-b flex justify-between items-center">
       <Image src={Logo} className="ml-2 size-16" alt="Icon" />
       <div className="flex gap-1">
-        <Link href="/movies" legacyBehavior passHref>
+        <Link href="/movies" passHref>
           <Button variant={currentPath === "/movies" ? "default" : "outline"}>
             Films
           </Button>
         </Link>
-        <Link href="/series" legacyBehavior passHref>
+        <Link href="/series" passHref>
           <Button variant={currentPath === "/series" ? "default" : "outline"}>
             Séries
           </Button>

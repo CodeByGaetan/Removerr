@@ -101,13 +101,17 @@ const Series = () => {
               key={serie.id}
               className="w-[170px] md:w-[250px] relative overflow-hidden"
             >
-              <Image
-                src={serie.imageUrl}
-                alt={serie.title}
-                unoptimized
-                width={600}
-                height={400}
-              />
+              {serie.imageUrl ? (
+                <Image
+                  src={serie.imageUrl}
+                  alt={serie.title}
+                  unoptimized
+                  width={600}
+                  height={400}
+                />
+              ) : (
+                <div className="h-[400px] w-[600px]" />
+              )}
               <Button
                 variant="outline"
                 size="icon"
